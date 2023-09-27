@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: OpenApi Eaxample
+  description: "This is an openApi example to demonstrate 
+  how to use OpenApi generator to create smooth Api 
+  communication flow between **serverless<-->angular** application"
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:4000/'
+    description: 'local backend server path'
+
+tags:
+  - name: User
+    description: 'This is the description of the User tag!'
+paths:
+  /user/{user_id}:
+    get:
+      description: 'This is the description of the /user/{user_id} path!'
+      operationId: getUser
+      responses:
+        200:
+          description: 'This is the description of the /user/{user_id} path 200 response'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/userDTO"
+      summary: 'This is the summary of the /user/{user_id} path'
+      tags:
+      - User
+components:
+  schemas:
+    userDTO:
+      title: 'This is the title of the UserDTO!'
+      description: 'This is the description of the userDTO'
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 999
+        name:
+          type: string
+          example: 'John'
+        age:
+          type: integer
+          example: 18
